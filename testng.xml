@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+
+
+<suite name="Selenium Automation Suite">
+
+    <listeners>
+        <listener class-name="com.amit.listeners.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="Regression Tests">
+        <classes>
+
+            <class name="com.amit.tests.LoginTest"/>
+            <class name="com.amit.tests.CartTest"/>
+            <class name="com.amit.tests.CheckoutTest"/>
+
+        </classes>
+    </test>
+
+</suite>
