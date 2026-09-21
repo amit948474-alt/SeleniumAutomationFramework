@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(groups = {"regression", "smoke"})
     public void validLoginTest() {
 
         LoginPage loginPage = new LoginPage(driver);

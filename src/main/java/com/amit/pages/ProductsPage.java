@@ -1,7 +1,11 @@
 package com.amit.pages;
 
+import com.amit.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductsPage {
 
@@ -23,5 +27,12 @@ public class ProductsPage {
     public int getCartCount(){
         String count = driver.findElement(cartBadge).getText();
         return Integer.parseInt(count);
+    }
+    private By menuButton = By.id("react-burger-menu-btn");
+    private By logoutButton = By.id("logout_sidebar_link");
+
+    public void logout() {
+        driver.findElement(menuButton).click();
+        WaitUtils.waitForElementClickable(driver, logoutButton, 10).click();
     }
 }

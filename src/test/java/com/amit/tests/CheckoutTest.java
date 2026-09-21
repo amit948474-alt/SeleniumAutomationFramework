@@ -16,7 +16,7 @@ import java.time.Duration;
 
 public class CheckoutTest extends BaseTest {
 
-    @Test
+    @Test(groups = "regression")
     public void checkoutTest(){
         LoginPage loginPage = new LoginPage (driver);
         CartPage cartPage = new CartPage(driver);

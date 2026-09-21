@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest  {
-    @Test
+    @Test(groups = "sanity")
     public void addProductToCartTest(){
         LoginPage loginPage = new LoginPage(driver);
         ProductsPage productsPage = new ProductsPage(driver);
