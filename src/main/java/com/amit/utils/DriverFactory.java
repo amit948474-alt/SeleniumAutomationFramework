@@ -23,8 +23,15 @@ public class DriverFactory {
             prefs.put("profile.password_manager_leak_detection", false);
             options.setExperimentalOption("prefs", prefs);
 
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+
             driver = new ChromeDriver(options);
-        } else if (browser.equalsIgnoreCase("edge")) {
+        }
+        else if (browser.equalsIgnoreCase("edge")) {
 
             EdgeOptions options = new EdgeOptions();
 
