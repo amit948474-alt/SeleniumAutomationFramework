@@ -14,7 +14,7 @@ public class Hooks {
         String browser = ConfigReader.getProperty("browser");
 
         driver = DriverFactory.createDriver(browser);
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.get(ConfigReader.getProperty("baseUrl"));
     }
     @After
