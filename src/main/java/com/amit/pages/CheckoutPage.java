@@ -1,5 +1,6 @@
 package com.amit.pages;
 
+import com.amit.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,15 +21,15 @@ public class CheckoutPage {
         this.driver = driver;
     }
     public void enterCheckoutDetails(String first, String last, String zip){
-        driver.findElement(firstName).sendKeys(first);
-        driver.findElement(lastName).sendKeys(last);
-        driver.findElement(postalCode).sendKeys(zip);
+        WaitUtils.waitForElementVisible(driver, firstName, 10).sendKeys(first);
+        WaitUtils.waitForElementVisible(driver, lastName, 10).sendKeys(last);
+        WaitUtils.waitForElementVisible(driver, postalCode, 10).sendKeys(zip);
     }
     public void clickContinue(){
-        driver.findElement(continueButton).click();
+        WaitUtils.waitForElementClickable(driver, continueButton, 10).click();
     }
     public void  clickFinish(){
-        driver.findElement(finishButton).click();
+        WaitUtils.waitForElementClickable(driver, finishButton, 10).click();
     }
     public String getSuccessMessage() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
