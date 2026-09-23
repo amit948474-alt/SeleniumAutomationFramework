@@ -5,6 +5,7 @@ import com.amit.utils.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
+import java.time.Duration;
 
 public class Hooks {
     public static WebDriver driver;
@@ -12,9 +13,8 @@ public class Hooks {
     @Before
     public void setup() {
         String browser = ConfigReader.getProperty("browser");
-
         driver = DriverFactory.createDriver(browser);
-        //driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
         driver.get(ConfigReader.getProperty("baseUrl"));
     }
     @After
