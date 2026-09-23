@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import java.util.HashMap;
+import org.openqa.selenium.edge.EdgeOptions;
 import java.util.Map;
 
 public class DriverFactory {
@@ -28,8 +29,13 @@ public class DriverFactory {
 
         } else if (browser.equalsIgnoreCase("edge")) {
 
-            driver = new EdgeDriver();
+            EdgeOptions options = new EdgeOptions();
 
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+
+            driver = new EdgeDriver(options);
         } else {
 
             throw new IllegalArgumentException(
