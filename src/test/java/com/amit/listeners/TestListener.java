@@ -30,12 +30,15 @@ public class TestListener implements ITestListener {
 
         test.fail(result.getThrowable());
 
-        BaseTest baseTest = (BaseTest) result.getInstance();
+        if (result.getInstance() instanceof BaseTest) {
 
-        ScreenshotsUtils.takeScreenshot(
-                baseTest.getDriver(),
-                result.getName()
-        );
+            BaseTest baseTest = (BaseTest) result.getInstance();
+
+            ScreenshotsUtils.takeScreenshot(
+                    baseTest.getDriver(),
+                    result.getName()
+            );
+        }
     }
 
     @Override
